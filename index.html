@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aprenda Violão do Zero</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #4caf50;
+        --text: #fff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #000;
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: auto;
+      }
+      .logo img {
+        display: table;
+        margin: 0 auto;
+        max-width: 300px;
+        width: 100%;
+      }
+      /* BACKGROUNDS */
+      .hero {
+        background: linear-gradient(180deg, #050505, #0c0c0c);
+      }
+      .ebook {
+        background: linear-gradient(180deg, #0c0c0c, #121212);
+      }
+      .advantages {
+        background: linear-gradient(180deg, #121212, #181818);
+      }
+      .modules {
+        background: linear-gradient(180deg, #181818, #1f1f1f);
+      }
+      .bio {
+        background: linear-gradient(180deg, #1f1f1f, #151515);
+      }
+      .faq {
+        background: linear-gradient(180deg, #151515, #101010);
+      }
+      .offer {
+        background: linear-gradient(180deg, #2f3b66, #1f2747);
+      }
+
+      /* ANIMATION */
+      .fade {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 0.7s ease;
+      }
+      .fade.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* HERO */
+      .hero h1 {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 800;
+      }
+      .hero p {
+        max-width: 720px;
+        margin: 25px auto 0;
+        text-align: center;
+        font-size: 1.15rem;
+        opacity: 0.9;
+      }
+
+      /* CTA */
+      .cta {
+        text-align: center;
+        margin-top: 40px;
+      }
+      .cta a {
+        display: inline-block;
+        background: var(--primary);
+        color: #fff;
+        padding: 24px 54px;
+        font-size: 1.4rem;
+        font-weight: 800;
+        border-radius: 60px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .cta a:hover {
+        transform: scale(1.1);
+        box-shadow: 0 25px 60px rgba(76, 175, 80, 0.45);
+      }
+
+      /* EBOOK */
+      .ebook img {
+        display: block;
+        max-width: 300px;
+        margin: 50px auto;
+      }
+
+      /* ADVANTAGES */
+      .adv {
+        display: grid;
+        gap: 40px;
+      }
+      .adv-item {
+        display: grid;
+        gap: 30px;
+        align-items: center;
+      }
+      .adv-item img {
+        max-width: 100%;
+        border-radius: 14px;
+      }
+      .adv-text h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      .adv-text p {
+        opacity: 0.9;
+      }
+
+      @media (min-width: 768px) {
+        .adv-item {
+          grid-template-columns: 1fr 1fr;
+        }
+        .adv-item.reverse {
+          direction: rtl;
+        }
+        .adv-item.reverse * {
+          direction: ltr;
+        }
+      }
+
+      /* MODULES */
+      .modules ul {
+        display: grid;
+        gap: 14px;
+      }
+      .modules li {
+        background: #1e1e1e;
+        padding: 18px;
+        border-radius: 12px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      }
+
+      /* BIO */
+      .bio-grid {
+        display: grid;
+        gap: 30px;
+        align-items: center;
+      }
+      .bio img {
+        max-width: 300px;
+        border-radius: 14px;
+        margin: auto;
+      }
+      @media (min-width: 768px) {
+        .bio-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* FAQ */
+      .faq-item {
+        background: #1c1c1c;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        overflow: hidden;
+      }
+      .faq-question {
+        padding: 18px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 18px;
+        transition: 0.4s ease;
+        opacity: 0.9;
+      }
+      .faq-item.active .faq-answer {
+        max-height: 200px;
+        padding-bottom: 18px;
+      }
+      .arrow {
+        transition: 0.3s;
+      }
+      .faq-item.active .arrow {
+        transform: rotate(180deg);
+      }
+
+      /* OFFER */
+      .offer-box {
+        max-width: 420px;
+        margin: auto;
+        text-align: center;
+        color: #fff;
+      }
+      .offer-box .old {
+        text-decoration: line-through;
+        opacity: 0.7;
+        font-size: 1.2rem;
+      }
+      .offer-box h2 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin: 10px 0;
+      }
+      .offer-box a {
+        display: block;
+        background: var(--primary);
+        padding: 24px;
+        font-size: 1.5rem;
+        font-weight: 800;
+        border-radius: 14px;
+        text-decoration: none;
+        color: #fff;
+        margin-top: 25px;
+        transition: 0.3s;
+      }
+      .offer-box a:hover {
+        transform: scale(1.08);
+      }
+
+      /* FOOTER */
+      footer {
+        background: #000;
+        padding: 40px 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HERO -->
+    <section class="hero fade">
+      <div class="logo">
+        <img src="logo.png" alt="Logo" />
+      </div>
+
+      <div class="container">
+        <h1>Aprenda violão do zero, mesmo que você nunca tenha tocado antes</h1>
+        <p>
+          Do primeiro contato com o violão até ritmos, acordes e músicas
+          completas, com apoio em vídeos e exercícios práticos.
+        </p>
+
+        <div class="ebook fade">
+          <img src="ebook.png" alt="Ebook" />
+        </div>
+        <div class="cta">
+          <a href="#oferta">Ver oferta especial</a>
+        </div>
+      </div>
+    </section>
+    <!-- ADVANTAGES -->
+    <section class="advantages fade">
+      <div class="container adv">
+        <div class="adv-item">
+          <img src="1.jpg" />
+          <div class="adv-text">
+            <h3>Comece do absoluto zero</h3>
+            <p>Conheça o violão, postura correta e posicionamento dos dedos.</p>
+          </div>
+        </div>
+
+        <div class="adv-item reverse">
+          <img src="3.jpg" />
+          <div class="adv-text">
+            <h3>QR Codes com videoaulas</h3>
+            <p>
+              Veja e pratique com vídeos que mostram exatamente o que fazer.
+            </p>
+          </div>
+        </div>
+
+        <div class="adv-item">
+          <img src="2.jpg" />
+          <div class="adv-text">
+            <h3>Ritmos mais usados em hinários</h3>
+            <p>Aprenda levadas que realmente são usadas nas igrejas.</p>
+          </div>
+        </div>
+
+        <div class="adv-item reverse">
+          <img src="4.jpg" />
+          <div class="adv-text">
+            <h3>Material completo</h3>
+            <p>
+              Músicas cifradas, dicionário de acordes, campos harmônicos e
+              exercícios.
+            </p>
+          </div>
+        </div>
+
+        <div class="cta">
+          <a href="#oferta">Quero aprender violão do jeito certo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULES -->
+    <section class="modules fade">
+      <div class="container">
+        <h2 style="display: table; margin: 0 auto">O que você vai aprender</h2>
+        <ul>
+          <br />
+          <h3>Módulo I - A necessária Teoria</h3>
+          <li>Aula 1 - Você e o violão</li>
+          <li>Aula 2 - A função das mãos</li>
+          <li>Aula 3 - A Música</li>
+          <li>Aula 4 - Cifras</li>
+          <li>Aula 5 - Diagramas e Cordas</li>
+          <br />
+          <h3>Módulo II - Mão na Massa</h3>
+          <li>Aula 6 - Posição Correta</li>
+          <li>Aula 7 - O Primeiro Som</li>
+          <li>Aula 8 - Ritmo</li>
+          <br />
+          <h3>Módulo III - Tocando com Louvor</h3>
+          <li>Aula 9 - Música Cifrada</li>
+          <li>Aula 10 - Campo Harmônico</li>
+          <li>Aula 11 - Novos Acordes</li>
+          <li>Aula 12 - Ritmos na Prática</li>
+          <br />
+          <h3>Módulo IV - Revisão e Próximos Passos</h3>
+          <li>Aula 13 - Caminhando</li>
+          <li>Dicionário de Acordes</li>
+          <li>Considerações Finais</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- BIO -->
+    <section class="bio fade">
+      <div class="container bio-grid">
+        <img src="bio.jfif" />
+        <div>
+          <h2>Quem sou eu</h2>
+          <p>
+            Me chamdo Greison e sou músico e educador a mais de 20 anos, sendo
+            11 deles dedicados à igreja Adventista e ao ministério de louvor.
+          </p>
+          <p>
+            Este e-book foi criado para quem sempre quis tocar, mas nunca
+            encontrou um método claro, simples e acessível.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq fade">
+      <div class="container">
+        <h2>Perguntas frequentes</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            É para iniciantes absolutos? <span class="arrow">↓</span>
+          </div>
+          <div class="faq-answer">
+            Sim, começa do zero total até o momento de louvor na sua igreja.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Tem videoaulas? <span class="arrow">↓</span>
+          </div>
+          <div class="faq-answer">
+            Sim, através de QR Codes você confere na prática como fazer cada
+            exercício prático.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Recebo na hora? <span class="arrow">↓</span>
+          </div>
+          <div class="faq-answer">Sim, acesso imediato após a compra.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFER -->
+    <section id="oferta" class="offer fade">
+      <div class="offer-box">
+        <h2 style="color: rgb(255, 132, 0)">Oferta Especial!</h2>
+        <p class="old">De R$97</p>
+        <p>Por apenas</p>
+        <h2>R$29,90</h2>
+        <p>À vista ou parcelado</p>
+
+        <a href="https://SEU-LINK-KIWIFY">COMEÇAR AGORA</a>
+
+        <p style="margin-top: 20px; opacity: 0.8">Cartão • Pix • Boleto</p>
+      </div>
+    </section>
+    <div class="logo">
+      <img src="logo.png" alt="Logo" />
+    </div>
+    <footer>© 2026 – 7chord • contato@7chord.com.br</footer>
+
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(
+          (e) => e.isIntersecting && e.target.classList.add("show"),
+        );
+      });
+      document.querySelectorAll(".fade").forEach((el) => observer.observe(el));
+
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        item.querySelector(".faq-question").onclick = () =>
+          item.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
