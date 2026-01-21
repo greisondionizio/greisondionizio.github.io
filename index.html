@@ -143,15 +143,17 @@
         opacity: 0.9;
       }
 
-      @media (min-width: 768px) {
+     @media (min-width: 768px) {
         .adv-item {
           grid-template-columns: 1fr 1fr;
         }
-        .adv-item.reverse {
-          direction: rtl;
+
+        .adv-item.reverse img {
+          order: 2;
         }
-        .adv-item.reverse * {
-          direction: ltr;
+
+        .adv-item.reverse .adv-text {
+          order: 1;
         }
       }
 
@@ -450,4 +452,5 @@
     </script>
   </body>
 </html>
+
 
