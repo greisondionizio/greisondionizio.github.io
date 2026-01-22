@@ -52,9 +52,6 @@
       .ebook {
         background: linear-gradient(180deg, #0c0c0c, #121212);
       }
-      .advantages {
-        background: linear-gradient(180deg, #121212, #181818);
-      }
       .modules {
         background: linear-gradient(180deg, #181818, #1f1f1f);
       }
@@ -122,38 +119,56 @@
       }
 
       /* ADVANTAGES */
-      .adv {
+      .advantages {
+        padding: 80px 0;
+        background: #1f1f1f; /* cinza escuro */
+      }
+
+      .adv-grid {
         display: grid;
-        gap: 40px;
-      }
-      .adv-item {
-        display: grid;
-        gap: 30px;
-        align-items: center;
-      }
-      .adv-item img {
-        max-width: 100%;
-        border-radius: 14px;
-      }
-      .adv-text h3 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-      }
-      .adv-text p {
-        opacity: 0.9;
+        grid-template-columns: repeat(2, 1fr); /* 2 cards por linha */
+        gap: 32px;
       }
 
-      @media (min-width: 768px) {
-        .adv-item {
-          grid-template-columns: 1fr 1fr;
-        }
+      .adv-card {
+        background: #2a2a2a;
+        border-radius: 20px;
+        padding: 28px;
+        text-align: center;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
 
-        .adv-item.reverse img {
-          order: 2;
-        }
+      .adv-card img {
+        width: 100%;
+        height: auto; /* mantém proporção original */
+        object-fit: initial; /* remove corte/distorção */
+        border-radius: 16px;
+        margin-bottom: 16px;
+        display: block;
+      }
 
-        .adv-item.reverse .adv-text {
-          order: 1;
+      .adv-card h3 {
+        font-size: 1.15rem;
+        margin-bottom: 8px;
+        color: #ffffff;
+      }
+
+      .adv-card p {
+        font-size: 0.95rem;
+        color: #cfcfcf;
+      }
+
+      .adv-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 45px rgba(0, 120, 255, 0.45); /* shadow azul */
+      }
+
+      /* Mobile */
+      @media (max-width: 640px) {
+        .adv-grid {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -284,49 +299,40 @@
         </div>
       </div>
     </section>
+
     <!-- ADVANTAGES -->
     <section class="advantages fade">
-      <div class="container adv">
-        <div class="adv-item">
-          <img src="1.jpg" />
-          <div class="adv-text">
-            <h3>Comece do absoluto zero</h3>
-            <p>Conheça o violão, postura correta e posicionamento dos dedos.</p>
-          </div>
+      <div class="container adv-grid">
+        <div class="adv-card">
+          <img src="1.jpg" alt="Comece do absoluto zero" />
+          <h3>Comece do absoluto zero</h3>
+          <p>Conheça o violão, postura correta e posicionamento dos dedos.</p>
         </div>
 
-        <div class="adv-item reverse">
-          <img src="3.jpg" />
-          <div class="adv-text">
-            <h3>QR Codes com videoaulas</h3>
-            <p>
-              Veja e pratique com vídeos que mostram exatamente o que fazer.
-            </p>
-          </div>
+        <div class="adv-card">
+          <img src="3.jpg" alt="QR Codes com videoaulas" />
+          <h3>QR Codes com videoaulas</h3>
+          <p>Veja e pratique com vídeos que mostram exatamente o que fazer.</p>
         </div>
 
-        <div class="adv-item">
-          <img src="2.jpg" />
-          <div class="adv-text">
-            <h3>Ritmos mais usados em hinários</h3>
-            <p>Aprenda levadas que realmente são usadas nas igrejas.</p>
-          </div>
+        <div class="adv-card">
+          <img src="2.jpg" alt="Ritmos mais usados em hinários" />
+          <h3>Ritmos mais usados em hinários</h3>
+          <p>Aprenda levadas que realmente são usadas nas igrejas.</p>
         </div>
 
-        <div class="adv-item reverse">
-          <img src="4.jpg" />
-          <div class="adv-text">
-            <h3>Material completo</h3>
-            <p>
-              Músicas cifradas, dicionário de acordes, campos harmônicos e
-              exercícios.
-            </p>
-          </div>
+        <div class="adv-card">
+          <img src="4.jpg" alt="Material completo" />
+          <h3>Material completo</h3>
+          <p>
+            Músicas cifradas, dicionário de acordes, campos harmônicos e
+            exercícios.
+          </p>
         </div>
+      </div>
 
-        <div class="cta">
-          <a href="#oferta">Quero aprender violão do jeito certo</a>
-        </div>
+      <div class="cta">
+        <a href="#oferta">Quero aprender violão do jeito certo</a>
       </div>
     </section>
 
